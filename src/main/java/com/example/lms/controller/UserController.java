@@ -1,7 +1,9 @@
 package com.example.lms.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.lms.bean.Courses;
 import com.example.lms.bean.User;
+import com.example.lms.service.CoursesService;
 import com.example.lms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +30,8 @@ public class UserController {
 
     @Autowired
     UserService userService;
-
+    @Autowired
+    CoursesService coursesService;
     @GetMapping("users")
     public String index(@RequestParam(value = "p", defaultValue = "1") Integer p, Model model) {
         Page<User> page = userService.page(new Page<>(p, 3));

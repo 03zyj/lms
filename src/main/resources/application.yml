@@ -12,8 +12,12 @@ spring:
     username: soft
     password: soft
     driver-class-name: com.mysql.cj.jdbc.Driver
-
-mybatis-plus:
-  #mapper-locations: classpath:mapper/*.xml
+#
+#mybatis-plus:
+#  #mapper-locations: classpath:mapper/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
