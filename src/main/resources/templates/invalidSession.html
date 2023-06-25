@@ -1,0 +1,14 @@
+<div th:replace="~{ app :: layout ('会话超时', _, ~{::#main_content}) }" xmlns:th="http://www.thymeleaf.org">
+  <div class="container" id="main_content">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">会话超时</div>
+          <div class="card-body">
+            <p class="text-center text-muted">会话超时了，请<a th:href="@{/login}">重新登录</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

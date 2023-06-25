@@ -1,0 +1,19 @@
+backend:
+    menus:
+        - name: "Dashboard"
+          url: "/backend/dashboard"
+          icon: "tachometer-alt"
+        - name: "Empty"
+          url: "/backend/empty"
+          icon: "square"
+spring:
+  datasource:
+    url: jdbc:mysql://47.99.133.120:3306/lms?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: soft
+    password: soft
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  #mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
