@@ -9,6 +9,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
@@ -21,6 +22,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfiguration {
     @Autowired
     LogoutSuccessHandler myLogoutSuccessHandler;
@@ -43,13 +45,13 @@ public class SecurityConfiguration {
                         //.defaultSuccessUrl("/", true)
                 )
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                        .requestMatchers("/", "/login", "/build/**", "/invalidSession", "/logout", "/vendor/**").permitAll()
-                        .requestMatchers("/city/**", "/users/**").permitAll()
-                        /*.requestMatchers("/backend/**").hasAnyRole("admin")
-                        .anyRequest().authenticated()*/
-                        .anyRequest().access((authentication, context) ->
-                                new AuthorizationDecision(myRBACService.hasPermission(context.getRequest(), authentication.get())))
+                        .requestMatchers("/backend/**","/backend/courses").hasRole("admin")
+                        .requestMatchers("/", "/login", "/build/**", "/invalidSession", "/logout", "/vendor/**","/city/**", "/users/**").permitAll()
+//                        .requestMatchers("/backend/**").hasAnyRole("admin")
+//                        .anyRequest().access((authentication, context) ->
+//                                new AuthorizationDecision(myRBACService.hasPermission(context.getRequest(), authentication.get())))
                 )
+
                 .sessionManagement(sm -> sm
                         //.invalidSessionUrl("/invalidSession")
                         //.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)

@@ -19,7 +19,7 @@ public class MyRBACService {
             UserDetails userDetails = ((UserDetails) principal);
             // 将当前请求的访问资源路径，如："/backend/dashboard" 包装成资源权限标识
             SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(request.getRequestURI());
-            // 判断用户已授权访问的资源中，是否包含"本次请求的资源"
+            // 判断用户已授权访问的资源中，是否包含"本次请求的trustResolver = {AuthenticationTrustResolverImpl@9627} 资源"
             return userDetails.getAuthorities().contains(simpleGrantedAuthority);
         }
         return false;

@@ -1,11 +1,14 @@
 backend:
     menus:
-        - name: "Dashboard"
-          url: "/backend/dashboard"
-          icon: "tachometer-alt"
-        - name: "Empty"
+        - name: "评论管理"
           url: "/backend/empty"
           icon: "square"
+        - name: "支付管理"
+          url: "/backend/dashboard"
+          icon: "tachometer-alt"
+        - name: "课程管理"
+          url: "/backend/courses"
+          icon: "tachometer-alt"
 spring:
   datasource:
     url: jdbc:mysql://47.99.133.120:3306/lms?useUnicode=true&characterEncoding=utf8&useSSL=false
