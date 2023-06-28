@@ -26,6 +26,10 @@ public class BackendController {
     String empty() {
         return "backend/empty";
     }
+    @GetMapping("courses1")
+    String courses1() {
+        return "backend/courses1";
+    }
    @GetMapping("courses")
     String courses(Model model) {
        List<Courses> coursesList = coursesService.findAll();

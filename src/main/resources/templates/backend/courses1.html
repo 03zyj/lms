@@ -1,7 +1,8 @@
 <div th:replace="~{ backend/app :: layout ('后台首页', _, ~{::#main_content}, _) }" xmlns:th="http://www.thymeleaf.org">
   <div class="content-wrapper" id="main_content">
-    <main class="container">
-      <div class="mt-5">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <section class="content-header">
         <table class="table table-hover">
           <thead>
           <tr>
@@ -13,37 +14,48 @@
           </tr>
           </thead>
           <tbody>
-          <tr th:each="course,stats:${page.records}">
-            <td th:text="${stats.count}"></td>
+          <tr th:each="course,stats:${coursesList}">
             <td th:text="${course.name}"></td>
             <td th:text="${course.type}"></td>
             <td th:text="${course.description}"></td>
-            <td>
-              <a class="btn btn-sm btn-danger" href="#" th:href="@{/course/{id}(id=${course.id})}"
-                 onclick="event.preventDefault(); if(confirm('确定删除吗?')){document.getElementById('destroy-form').submit();}">
-                删除
-                <form id="destroy-form" th:action="@{/course/{id}(id=${user.id},p=${page.getCurrent()})}" method="post" style="display: none;">
-                  <input type="hidden" name="_method" value="delete">
-                </form>
-              </a>
-            </td>
+            <td th:text="${course.like}"></td>
+            <td th:text="${course.image}"></td>
           </tr>
           </tbody>
 
         </table>
-        <p class="text-muted">当前第 [[${page.getCurrent()}]] 页，总计 [[${page.getPages()}]] 页，共 [[${page.getTotal()}]] 条记录</p>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            <li class="page-item" th:if="${page.hasPrevious()}">
-              <a class="page-link" href="#" th:href="@{/users(p=${page.getCurrent()-1})}" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li th:class="${currentPageNumber == page.getCurrent() ? 'page-item active' : 'page-item'}" class="page-item" th:each="currentPageNumber:${#numbers.sequence(1, page.getPages())}"><a class="page-link" th:href="@{/users(p=${currentPageNumber})}" href="#">[[${currentPageNumber}]]</a></li>
-            <li class="page-item" th:if="${page.hasNext()}">
-              <a class="page-link" href="#" th:href="@{/users(p=${page.getCurrent()+1})}">Next</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </main>
+      </section>
+    </section>
+
+    <!--        &lt;!&ndash; Main content &ndash;&gt;-->
+    <!--        <section class="content">-->
+
+    <!--            &lt;!&ndash; Default box &ndash;&gt;-->
+    <!--            <div class="card">-->
+    <!--                <div class="card-header">-->
+    <!--                    <h3 class="card-title">Title</h3>-->
+
+    <!--                    <div class="card-tools">-->
+    <!--                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">-->
+    <!--                            <i class="fas fa-minus"></i>-->
+    <!--                        </button>-->
+    <!--                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">-->
+    <!--                            <i class="fas fa-times"></i>-->
+    <!--                        </button>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="card-body">-->
+    <!--                    Start creating your amazing application!-->
+    <!--                </div>-->
+    <!--                &lt;!&ndash; /.card-body &ndash;&gt;-->
+    <!--                <div class="card-footer">-->
+    <!--                    Footer-->
+    <!--                </div>-->
+    <!--                &lt;!&ndash; /.card-footer&ndash;&gt;-->
+    <!--            </div>-->
+    <!--            &lt;!&ndash; /.card &ndash;&gt;-->
+
+    <!--        </section>-->
+    <!-- /.content -->
   </div>
 </div>

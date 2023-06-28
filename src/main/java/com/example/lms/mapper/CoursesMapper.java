@@ -9,4 +9,6 @@ import java.util.List;
 public interface CoursesMapper extends BaseMapper<Courses> {
     @Select("SELECT * FROM courses")
     List<Courses> findAll();
+    @Select("SELECT * FROM courses WHERE id = #{id}")
+    Courses findById(Integer id);
 }

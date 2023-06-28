@@ -9,6 +9,9 @@ backend:
         - name: "课程管理"
           url: "/backend/courses"
           icon: "tachometer-alt"
+        - name: "课程1管理"
+          url: "/backend/courses1"
+          icon: "tachometer-alt"
 spring:
   datasource:
     url: jdbc:mysql://47.99.133.120:3306/lms?useUnicode=true&characterEncoding=utf8&useSSL=false

@@ -46,7 +46,7 @@ public class SecurityConfiguration {
                 )
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/backend/**","/backend/courses").hasRole("admin")
-                        .requestMatchers("/", "/login", "/build/**", "/invalidSession", "/logout", "/vendor/**","/city/**", "/users/**").permitAll()
+                        .requestMatchers("/", "/login", "/build/**", "/invalidSession", "/logout", "/vendor/**","/city/**", "/courses/**","/users/**").permitAll()
 //                        .requestMatchers("/backend/**").hasAnyRole("admin")
 //                        .anyRequest().access((authentication, context) ->
 //                                new AuthorizationDecision(myRBACService.hasPermission(context.getRequest(), authentication.get())))

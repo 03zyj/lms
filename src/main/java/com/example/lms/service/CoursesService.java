@@ -14,4 +14,5 @@ import java.util.List;
 public interface  CoursesService extends IService<Courses>{
 
     List<Courses> findAll();
+    Courses findById(Integer id);
 }

@@ -56,73 +56,25 @@
             <div class="tab-content" style="">
                 <div class="tab-pane fade show active">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-<!--                        <tr th:each="user : ${coursesList}"-->
-<!--                            th:if="${user.age gt 18}">-->
-<!--                            <td th:text="${user.name}">Name</td>-->
-<!--                            <td th:text="${user.age}">Age</td>-->
-<!--                        </tr>-->
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;" th:each="courses : ${coursesList}">
+
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${coursesStat.index}<4">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\${courses.image}" alt="coding">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
-                                    <td ></td>
-                                    <td th:text="${courses.is_boutique}"></td>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
                             </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
+
+
                     </div>
                 </div>
             </div>
@@ -143,122 +95,17 @@
             <div id="home1" class="tab-pane fade show active">
                 <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
                     <a href="#"  style="text-decoration:none;" >
-                        <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
+                        <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.is_boutique}==1 and ${coursesStat.index}<8">
                             <div class="col-lg-6 mt-3 mt-lg-0" >
                                 <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                    <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
+                                    <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                 </div>
                             </div>
                             <div class="card-body" style="color: black">
-                                <h5 class="card-title">数据结构</h5>
-                                <p class="card-text">浙江大学</p>
-                                <p class="card-text">陈越</p>
-                                <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"  style="text-decoration:none;" >
-                        <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                            <div class="col-lg-6 mt-3 mt-lg-0" >
-                                <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                    <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                </div>
-                            </div>
-                            <div class="card-body" style="color: black">
-                                <h5 class="card-title">数据结构</h5>
-                                <p class="card-text">浙江大学</p>
-                                <p class="card-text">陈越</p>
-                                <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"  style="text-decoration:none;" >
-                        <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                            <div class="col-lg-6 mt-3 mt-lg-0" >
-                                <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                    <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                </div>
-                            </div>
-                            <div class="card-body" style="color: black">
-                                <h5 class="card-title">数据结构</h5>
-                                <p class="card-text">浙江大学</p>
-                                <p class="card-text">陈越</p>
-                                <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"  style="text-decoration:none;" >
-                        <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                            <div class="col-lg-6 mt-3 mt-lg-0" >
-                                <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                    <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                </div>
-                            </div>
-                            <div class="card-body" style="color: black">
-                                <h5 class="card-title">数据结构</h5>
-                                <p class="card-text">浙江大学</p>
-                                <p class="card-text">陈越</p>
-                                <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"  style="text-decoration:none;" >
-                        <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                            <div class="col-lg-6 mt-3 mt-lg-0" >
-                                <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                    <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                </div>
-                            </div>
-                            <div class="card-body" style="color: black">
-                                <h5 class="card-title">数据结构</h5>
-                                <p class="card-text">浙江大学</p>
-                                <p class="card-text">陈越</p>
-                                <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"  style="text-decoration:none;" >
-                        <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                            <div class="col-lg-6 mt-3 mt-lg-0" >
-                                <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                    <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                </div>
-                            </div>
-                            <div class="card-body" style="color: black">
-                                <h5 class="card-title">数据结构</h5>
-                                <p class="card-text">浙江大学</p>
-                                <p class="card-text">陈越</p>
-                                <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"  style="text-decoration:none;" >
-                        <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                            <div class="col-lg-6 mt-3 mt-lg-0" >
-                                <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                    <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                </div>
-                            </div>
-                            <div class="card-body" style="color: black">
-                                <h5 class="card-title">数据结构</h5>
-                                <p class="card-text">浙江大学</p>
-                                <p class="card-text">陈越</p>
-                                <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#"  style="text-decoration:none;" >
-                        <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                            <div class="col-lg-6 mt-3 mt-lg-0" >
-                                <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                    <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                </div>
-                            </div>
-                            <div class="card-body" style="color: black">
-                                <h5 class="card-title">数据结构</h5>
-                                <p class="card-text">浙江大学</p>
-                                <p class="card-text">陈越</p>
-                                <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
+                                <h5 class="card-title" th:text="${courses.name}"></h5>
+                                <p class="card-text" th:text="${courses.unit}"></p>
+                                <p class="card-text" th:text="${courses.teachname}"></p>
+                                <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                             </div>
                         </div>
                     </a>
@@ -290,78 +137,78 @@
                 <div id="home2" class="tab-pane fade show active">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
                         <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='计算机基础' or ${courses.type}=='程序设计' or ${courses.type}=='考试'">
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
                                 <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
+                                    <h5 class="card-title" th:text="${courses.name}"></h5>
+                                    <p class="card-text" th:text="${courses.unit}"></p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div id="jisuan" class="tab-pane fade">
-                    <h3>计算机基础</h3>
-                    <p>Some content here.</p>
+                    <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
+                        <a href="#"  style="text-decoration:none;" >
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='计算机基础'">
+                                <div class="col-lg-6 mt-3 mt-lg-0" >
+                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
+                                    </div>
+                                </div>
+                                <div class="card-body" style="color: black">
+                                    <h5 class="card-title" th:text="${courses.name}"></h5>
+                                    <p class="card-text" th:text="${courses.unit}"></p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div id="chengxu" class="tab-pane fade">
-                    <h3>程序设计</h3>
-                    <p>Some content here.</p>
+                    <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
+                        <a href="#"  style="text-decoration:none;" >
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='程序设计'">
+                                <div class="col-lg-6 mt-3 mt-lg-0" >
+                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
+                                    </div>
+                                </div>
+                                <div class="card-body" style="color: black">
+                                    <h5 class="card-title" th:text="${courses.name}"></h5>
+                                    <p class="card-text" th:text="${courses.unit}"></p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div id="kaoyan" class="tab-pane fade">
-                    <h3>考试</h3>
-                    <p>Some content here.</p>
+                    <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
+                        <a href="#"  style="text-decoration:none;" >
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='考试'">
+                                <div class="col-lg-6 mt-3 mt-lg-0" >
+                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
+                                    </div>
+                                </div>
+                                <div class="card-body" style="color: black">
+                                    <h5 class="card-title" th:text="${courses.name}"></h5>
+                                    <p class="card-text" th:text="${courses.unit}"></p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -386,75 +233,60 @@
             <div class="tab-content" style="">
                 <div id="home3" class="tab-pane fade show active">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#" style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
                         <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='听说读写' or ${courses.type}=='考试/培训'">
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
                                 <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
+                                    <h5 class="card-title" th:text="${courses.name}"></h5>
+                                    <p class="card-text" th:text="${courses.unit}"></p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div id="read" class="tab-pane fade">
-                    <h3>听说读</h3>
-                    <p>Some content here.</p>
+                    <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
+                        <a href="#"  style="text-decoration:none;" >
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='听说读写'">
+                                <div class="col-lg-6 mt-3 mt-lg-0" >
+                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
+                                    </div>
+                                </div>
+                                <div class="card-body" style="color: black">
+                                    <h5 class="card-title" th:text="${courses.name}"></h5>
+                                    <p class="card-text" th:text="${courses.unit}"></p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div id="pei" class="tab-pane fade">
-                    <h3>考试/培训</h3>
-                    <p>Some content here.</p>
+                    <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
+                        <a href="#"  style="text-decoration:none;" >
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='考试/培训'">
+                                <div class="col-lg-6 mt-3 mt-lg-0" >
+                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
+                                    </div>
+                                </div>
+                                <div class="card-body" style="color: black">
+                                    <h5 class="card-title" th:text="${courses.name}"></h5>
+                                    <p class="card-text" th:text="${courses.unit}"></p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -479,70 +311,40 @@
                 <div id="home4" class="tab-pane fade show active">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
                         <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='考试/考研'">
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
                                 <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#"  style="text-decoration:none;" >
-                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;">
-                                <div class="col-lg-6 mt-3 mt-lg-0" >
-                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
-                                        <img class="img-fluid shadow" src="\img\myimage\ke0.png" alt="coding">
-                                    </div>
-                                </div>
-                                <div class="card-body" style="color: black">
-                                    <h5 class="card-title">数据结构</h5>
-                                    <p class="card-text">浙江大学</p>
-                                    <p class="card-text">陈越</p>
-                                    <p style="color: #00b44e;float: left">进行至第一周</p><p style="color:#959393;float: right">3354人参加</p>
+                                    <h5 class="card-title" th:text="${courses.name}"></h5>
+                                    <p class="card-text" th:text="${courses.unit}"></p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div id="gongkekaoshi" class="tab-pane fade">
-                    <h3>考试/考研e</h3>
-                    <p>Some content here.</p>
+                    <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
+                        <a href="#"  style="text-decoration:none;" >
+                            <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='考试/考研'">
+                                <div class="col-lg-6 mt-3 mt-lg-0" >
+                                    <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
+                                        <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
+                                    </div>
+                                </div>
+                                <div class="card-body" style="color: black">
+                                    <h5 class="card-title" th:text="${courses.name}"></h5>
+                                    <p class="card-text" th:text="${courses.unit}"></p>
+                                    <p class="card-text" th:text="${courses.teachname}"></p>
+                                    <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
             </div>
