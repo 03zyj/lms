@@ -29,13 +29,13 @@ public class uploadVideoController {
             System.out.println("重构文件名防止上传同名文件："+newVideoName);
             String videoNameText = file.getOriginalFilename();
             System.out.println("视频原名:"+videoNameText);
-            String videoUrl = "C:/xiangmu/shixun/mylms/src/main/resources/static/img/videos" + "/" + newVideoName;
+            String videoUrl = "C:/videos" + "/" + newVideoName;
             videoUploadMapper.save(videoNameText,videoUrl,newVideoName);
-            File filepath = new File("C:/xiangmu/shixun/mylms/src/main/resources/static/img/videos", file.getOriginalFilename());
+            File filepath = new File("C:/videos", file.getOriginalFilename());
             if (!filepath.getParentFile().exists()) {
                 filepath.getParentFile().mkdirs();
             }
-            File fileSave = new File("C:/xiangmu/shixun/mylms/src/main/resources/static/img/videos", newVideoName);
+            File fileSave = new File("C:/videos", newVideoName);
             file.transferTo(fileSave);
             resultMap.put("newVideoName",newVideoName);
             resultMap.put("resCode","200");

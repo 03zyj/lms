@@ -12,7 +12,7 @@
                 </div>
             </div>
             <section class="content-header">
-                <table class="table table-hover">
+                <table class="table table-hover" >
                     <thead>
                     <tr>
                         <th>课程名称</th>
@@ -20,17 +20,23 @@
                         <th>课程描述</th>
                         <th>点赞数</th>
                         <th>课程图片</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr th:each="course,stats:${coursesList}">
+                    <tbody th:each="course,stats:${coursesList}">
+                    <tr   style="height: 100px;">
                         <td th:text="${course.name}"></td>
                         <td th:text="${course.type}"></td>
                         <td th:text="${course.description}"></td>
                         <td th:text="${course.like}"></td>
-                        <td th:text="${course.image}"></td>
-                        <td><input type="button" value="修改" style="border-style:none;"/></td>
-                        <td><input type="button" value="删除"style="border-style:none;"/></td>
+                        <td ><img class="img-fluid shadow" width="100" height="50" th:src="'\\img\myimage\\' + ${course.image}" alt="coding"></td>
+                        <td><input type="button" value="修改" style="border-style:none;"/>&nbsp;&nbsp;
+                            <a class="btn btn-sm btn-danger" th:href="@{/coursesDelete/{id}(id=${course.id})}"
+                               onclick="event.preventDefault(); if(confirm('确定删除吗?')){document.getElementById('destroy-form').submit();}">
+                                删除
+                                <form id="destroy-form" th:action="@{/coursesDelete/{id}(id=${course.id})}" method="post" style="display: none;">
+                                </form>
+                            </a></td>
                     </tr>
                     </tbody>
 

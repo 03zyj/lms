@@ -5,6 +5,7 @@ import com.example.lms.bean.Chapter;
 import com.example.lms.bean.City;
 import com.example.lms.bean.Courses;
 import com.example.lms.bean.User;
+import com.example.lms.mapper.CoursesMapper;
 import com.example.lms.service.ChapterService;
 import com.example.lms.service.CoursesService;
 import jakarta.websocket.server.PathParam;
@@ -22,6 +23,8 @@ public class CoursesCotroller {
     CoursesService coursesService;
     @Autowired
     ChapterService chapterService;
+    @Autowired
+    CoursesMapper coursesMapper;
     @GetMapping("/pay/{id}")
     public String pay(@PathVariable Integer id,Model model) {
         int n = coursesService.updatePay(id);
@@ -47,5 +50,14 @@ public class CoursesCotroller {
         model.addAttribute("chapter", chapter);
         model.addAttribute("courses", courses1);
         return "courseDetail";
+    }
+    @PostMapping("/coursesDelete/{id}")
+    public String coursesDelete(@PathVariable Integer id,Model model) {
+        int n =coursesMapper.delete(id);
+        System.out.println(id);
+        System.out.println(n);
+        List<Courses> coursesList = coursesService.findAll();
+        model.addAttribute("coursesList", coursesList);
+        return "backend/courses";
     }
 }

@@ -19,4 +19,15 @@ public class IndexController {
         model.addAttribute("coursesList", coursesList);
         return "index";
     }
+
+    /*新增加*/
+    @GetMapping("/resources")
+    String resources() {
+        return "resources";
+    }
+
+    @GetMapping("/resources_show")
+    String resources_show() {
+        return "resources-show";
+    }
 }
