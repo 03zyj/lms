@@ -1,0 +1,43 @@
+<div th:replace="~{ backend/app :: layout ('后台首页', _, ~{::#main_content}, _) }" xmlns:th="http://www.thymeleaf.org">
+    <div class="content-wrapper" id="main_content">
+        <section class="content-header">
+            <div style=" display: flex; flex-direction: row;align-items: center; justify-content:space-between; background-color: #CDE9FE">
+                <div>
+
+                    <a style="border-style:none;"th:href="@{/backend/videos_show}">添加</a>
+                </div>
+                <div>
+                    <input/>
+                    <button style="border-style:none;"> 搜索</button>
+                </div>
+            </div>
+            <section class="content-header">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>视频名称</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each="video,stats:${videoList}">
+                        <td th:text="${video.id}"></td>
+                        <td th:text="${video.videoName}"></td>
+                        <td>
+                            <a style="border-style:none;"th:href="@{/backend/video}">查看</a>
+                        </td>
+
+<!--                        <td><input type="button" value="修改" style="border-style:none;"/></td>-->
+<!--                        <td>-->
+<!--                            <button class="deleteBtn" data-video-id="${video.id}">删除视频</button>-->
+<!--                        </td>-->
+                    </tr>
+                    </tbody>
+
+                </table>
+            </section>
+        </section>
+    </div>
+</div>

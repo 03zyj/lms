@@ -15,4 +15,6 @@ public interface  CoursesService extends IService<Courses>{
 
     List<Courses> findAll();
     Courses findById(Integer id);
+    Courses findByName(String name);
+    int updatePay(Integer id);
 }

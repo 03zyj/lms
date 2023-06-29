@@ -17,11 +17,17 @@ public class CoursesServiceImpl extends ServiceImpl<CoursesMapper, Courses> impl
 
     @Override
     public List<Courses> findAll() {
-        List<Courses> list = coursesMapper.findAll();
+            List<Courses> list = coursesMapper.findAll();
         return list;
     }
 
     public Courses findById(Integer id) {
         return coursesMapper.findById(id);
+    }
+    public Courses findByName(String name) {
+        return coursesMapper.findByName(name);
+    }
+    public int updatePay(Integer id) {
+        return coursesMapper.updatePay(id);
     }
 }

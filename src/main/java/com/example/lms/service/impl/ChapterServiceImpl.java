@@ -7,6 +7,8 @@ import com.example.lms.service.ChapterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class ChapterServiceImpl extends ServiceImpl<ChapterMapper,Chapter> implements ChapterService {
@@ -14,7 +16,7 @@ public class ChapterServiceImpl extends ServiceImpl<ChapterMapper,Chapter> imple
     ChapterMapper chapterMapper;
 
 
-    public Chapter findById(Integer id) {
+    public List<Chapter> findById(Integer id) {
         return chapterMapper.findById(id);
     }
 }

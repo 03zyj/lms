@@ -94,21 +94,23 @@
         <div class="tab-content" style="">
             <div id="home1" class="tab-pane fade show active">
                 <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                    <a href="#"  style="text-decoration:none;" >
                         <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.is_boutique}==1 and ${coursesStat.index}<8">
+                            <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                             <div class="col-lg-6 mt-3 mt-lg-0" >
                                 <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                     <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                 </div>
                             </div>
+                            </a>
                             <div class="card-body" style="color: black">
                                 <h5 class="card-title" th:text="${courses.name}"></h5>
                                 <p class="card-text" th:text="${courses.unit}"></p>
                                 <p class="card-text" th:text="${courses.teachname}"></p>
                                 <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                             </div>
+
                         </div>
-                    </a>
+
                 </div>
             </div>
         </div>
@@ -136,78 +138,86 @@
             <div class="tab-content" style="">
                 <div id="home2" class="tab-pane fade show active">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#"  style="text-decoration:none;" >
                             <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='计算机基础' or ${courses.type}=='程序设计' or ${courses.type}=='考试'">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                         <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
                                     <p class="card-text" th:text="${courses.teachname}"></p>
                                     <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
+
                             </div>
-                        </a>
+
                     </div>
                 </div>
                 <div id="jisuan" class="tab-pane fade">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#"  style="text-decoration:none;" >
                             <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='计算机基础'">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                         <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
                                     <p class="card-text" th:text="${courses.teachname}"></p>
                                     <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
+
                             </div>
-                        </a>
+
                     </div>
                 </div>
                 <div id="chengxu" class="tab-pane fade">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#"  style="text-decoration:none;" >
                             <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='程序设计'">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                         <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
                                     <p class="card-text" th:text="${courses.teachname}"></p>
                                     <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
+
                             </div>
-                        </a>
+
                     </div>
                 </div>
                 <div id="kaoyan" class="tab-pane fade">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#"  style="text-decoration:none;" >
                             <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='考试'">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                         <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
                                     <p class="card-text" th:text="${courses.teachname}"></p>
                                     <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
+
                             </div>
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -233,59 +243,65 @@
             <div class="tab-content" style="">
                 <div id="home3" class="tab-pane fade show active">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#"  style="text-decoration:none;" >
                             <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='听说读写' or ${courses.type}=='考试/培训'">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                         <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
                                     <p class="card-text" th:text="${courses.teachname}"></p>
                                     <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
+
                             </div>
-                        </a>
+
                     </div>
                 </div>
                 <div id="read" class="tab-pane fade">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#"  style="text-decoration:none;" >
                             <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='听说读写'">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                         <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
                                     <p class="card-text" th:text="${courses.teachname}"></p>
                                     <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
+
                             </div>
-                        </a>
+
                     </div>
                 </div>
                 <div id="pei" class="tab-pane fade">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#"  style="text-decoration:none;" >
                             <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='考试/培训'">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                         <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
                                     <p class="card-text" th:text="${courses.teachname}"></p>
                                     <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
+
                             </div>
-                        </a>
+
                     </div>
                 </div>
 
@@ -310,40 +326,44 @@
             <div class="tab-content" style="">
                 <div id="home4" class="tab-pane fade show active">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#"  style="text-decoration:none;" >
                             <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='考试/考研'">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                         <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
                                     <p class="card-text" th:text="${courses.teachname}"></p>
                                     <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
+
                             </div>
-                        </a>
+
                     </div>
                 </div>
                 <div id="gongkekaoshi" class="tab-pane fade">
                     <div class="d-flex flex-row bd-highlight mb-3" style="float: left;width: 100%;display: flex;flex-wrap: wrap;">
-                        <a href="#"  style="text-decoration:none;" >
                             <div class="card" style="width: 18rem;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);margin-left: 10px;margin-top: 10px;float: left;" th:each="courses ,coursesStat:  ${coursesList}" th:if="${courses.type}=='考试/考研'">
+                                <a th:href="@{/courses/{id}(id=${courses.id})}" style="text-decoration:none;" >
                                 <div class="col-lg-6 mt-3 mt-lg-0" >
                                     <div class="text-center" data-aos="zoom-in"  style="width: 225%;height: 240%;margin-top: 20px;">
                                         <img class="img-fluid shadow" th:src="'\\img\myimage\\' + ${courses.image}" alt="coding">
                                     </div>
                                 </div>
+                                </a>
                                 <div class="card-body" style="color: black">
                                     <h5 class="card-title" th:text="${courses.name}"></h5>
                                     <p class="card-text" th:text="${courses.unit}"></p>
                                     <p class="card-text" th:text="${courses.teachname}"></p>
                                     <p style="color: #00b44e;float: left" th:text="${courses.schedule}" ></p><p style="color:orangered;float: right">点赞</p><p style="color:orangered;float: right" th:text="${courses.like}"></p>
                                 </div>
+
                             </div>
-                        </a>
+
                     </div>
                 </div>
 

@@ -105,14 +105,17 @@
     </header>
 
     <div class="container video-collections-show mb-2rem">
+
         <div class="row justify-content-center">
-            <div class="col-lg-9">
-                <div class="row" th:each="docs,stats:${courses}" style="float: left;width: 1000px;">
+
+            <div class="col-lg-9" th:each="docs,stats:${courses}">
+                <div class="row" style="float: left;width: 1000px;">
                     <div class="col-3" style="float: left">
                         <img th:src="'\\img\myimage\\' + ${courses.image}" style="width: 200%!important;height: 100%!important;">
                     </div>
                     <div class="col-9" style="padding-left: 220px!important; ">
                         <div class="base-info">
+                            <a th:href="@{/}" style="text-decoration:none;float: right;margin-right: 27%" />返回</a>
                             <p class="font-size-12 text-muted mb-1" >名称</p>
                             <h1 class="h4" th:text="${courses.name}"></h1>
 
@@ -120,6 +123,7 @@
                             <p class="" th:text="${courses.description}"></p>
                             <p class="font-size-12 text-muted mb-1">授课单位</p>
                             <p class="font-size-14" th:text="${courses.unit}"></p>
+                            <a th:href="@{/pay/{id}(id=${courses.id})}" class="btn btn-sm btn-primary transition-3d-hover my-3 my-lg-0" th:if="${courses.ispay}!=2" style="float: right;margin-right: 27%">购买课程</a>
                             <p class="font-size-12 text-muted mb-1">授课人</p>
                             <p class="font-size-14" th:text="${courses.teachname}"></p>
                             <p class="font-size-12 text-muted mb-1" style="color:orangered;float: right;margin-right: 27%"><a href="#" style="color:orangered;">点赞</a></p>
@@ -130,161 +134,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="collections-syllabus-box mt-5">
+                <div class="collections-syllabus-box mt-5" th:if="${courses.ispay}!=1">
                     <p class="font-size-12 text-muted mb-1">内容</p>
 <!--                    <div class="py-2 small d-flex justify-content-between">-->
 <!--                        <span>共 4 个章节 • 11 篇文章</span>-->
 <!--                        <a href="javascript:void(0)" class="toggle-syllabus"></a>-->
 <!--                    </div>-->
                     <div class="collections-syllabus" th:each="chapter,stats:${chapter}">
-                                                    <div class="lecture-group-wrapper" th:if="${chapter.cho}==${coursesStat.index}+1">
+                                                    <div class="lecture-group-wrapper" th:if="${chapter.so}==1">
                                 <div class="lecture-group-title clearfix" data-toggle="collapse"
-                                     data-target="#collapse-2"
+                                     data-target="#collapse-1"
                                      aria-expanded="true">
-                                    <div class="title float-left">
-                                        Docker 初体验
+                                    <div class="title float-left" th:text="${chapter.chname}">
+
                                     </div>
                                 </div>
                             </div>
-                            <div id="collapse-2"
+                            <div id="collapse-1"
                                  class="lecture-list collapse show">
                                 <ul class="font-size-14">
-                                                                            <a href="#">
+
                                             <li class="lecture doc">
-                                                <span class="lecture-title">安装 Docker </span>
+                                                <a th:href="${chapter.url}" style="text-decoration:none;color: #1a88ff">
+                                                <span class="lecture-title" th:text="${chapter.sname}" > </span>
                                                 <div class="float-right">
-                                                                                                    </div>
+                                                                                           </div>
+                                                </a>
                                             </li>
-                                        </a>
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">运行第一个 Docker 容器 </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
                                                                     </ul>
                             </div>
-                                                    <div class="lecture-group-wrapper">
-                                <div class="lecture-group-title clearfix" data-toggle="collapse"
-                                     data-target="#collapse-3"
-                                     aria-expanded="false">
-                                    <div class="title float-left">
-                                        创建、更新、分享 Docker 镜像
-                                    </div>
-                                    <div class="float-right">
-                                        <span class="total-lectures">
-                                            3 Lectures
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="collapse-3"
-                                 class="lecture-list collapse ">
-                                <ul class="font-size-14">
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">创建自己的 Docker 镜像 </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">更新应用并重新构建 Docker 镜像 </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">分享自己创建的 Docker 镜像 </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
-                                                                    </ul>
-                            </div>
-                                                    <div class="lecture-group-wrapper">
-                                <div class="lecture-group-title clearfix" data-toggle="collapse"
-                                     data-target="#collapse-4"
-                                     aria-expanded="false">
-                                    <div class="title float-left">
-                                        进一步了解 Docker
-                                    </div>
-                                    <div class="float-right">
-                                        <span class="total-lectures">
-                                            5 Lectures
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="collapse-4"
-                                 class="lecture-list collapse ">
-                                <ul class="font-size-14">
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">使用 Docker 命名卷 named volume 持久化数据 </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">使用 bind mounts 快速搭建本地开发环境 </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">Docker 多容器应用 Multi-Container Apps </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">使用 Docker Compose </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">构建 Docker 镜像的最佳实践 </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
-                                                                    </ul>
-                            </div>
-                                                    <div class="lecture-group-wrapper">
-                                <div class="lecture-group-title clearfix" data-toggle="collapse"
-                                     data-target="#collapse-5"
-                                     aria-expanded="false">
-                                    <div class="title float-left">
-                                        小结
-                                    </div>
-                                    <div class="float-right">
-                                        <span class="total-lectures">
-                                            1 Lectures
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="collapse-5"
-                                 class="lecture-list collapse ">
-                                <ul class="font-size-14">
-                                                                            <a href="#">
-                                            <li class="lecture doc">
-                                                <span class="lecture-title">Docker 基础知识回顾 </span>
-                                                <div class="float-right">
-                                                                                                    </div>
-                                            </li>
-                                        </a>
-                                                                    </ul>
-                            </div>
+
+
+
                                             </div>
                 </div>
             </div>

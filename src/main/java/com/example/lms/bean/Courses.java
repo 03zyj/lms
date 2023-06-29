@@ -15,8 +15,9 @@ public class Courses {
     private String teachname;
     private Integer is_boutique;
     private String schedule;
+    private Integer ispay;
 
-    public Courses(Integer id, String name, String type, String description, Integer like, String image, Integer p_id, String unit, String teachname, Integer is_boutique, String schedule) {
+    public Courses(Integer id, String name, String type, String description, Integer like, String image, Integer p_id, String unit, String teachname, Integer is_boutique, String schedule, Integer ispay) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -28,5 +29,6 @@ public class Courses {
         this.teachname = teachname;
         this.is_boutique = is_boutique;
         this.schedule = schedule;
+        this.ispay = ispay;
     }
 }

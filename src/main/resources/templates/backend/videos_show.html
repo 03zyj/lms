@@ -1,0 +1,47 @@
+<div th:replace="~{ backend/app :: layout ('后台首页', _, ~{::#main_content}, _) }" xmlns:th="http://www.thymeleaf.org">
+    <div class="content-wrapper" id="main_content">
+<h1>视频上传</h1>
+<form enctype="multipart/form-data">
+    <input type="file" id="videoInput" accept="video/*">
+    <button type="button" onclick="uploadVideo()">上传视频</button>
+</form>
+
+<script>
+    function uploadVideo() {
+        // 获取文件输入框和保存路径输入框的值
+        var videoInput = document.getElementById('videoInput');
+        var file = videoInput.files[0];
+        var savePath = "/path/to/save"; // 设置保存视频的路径
+
+        // 创建FormData对象，用于发送文件和额外的参数
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('SavePath', savePath);
+
+        // 发送POST请求
+        fetch('/api/uploadVideo3', {
+            method: 'POST',
+            body: formData
+        })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                // 获取后端返回的结果
+                if (data.resCode === "200") {
+                    alert('视频上传成功！');
+                    console.log('新视频名称：' + data.newVideoName);
+                    console.log('视频保存路径：' + data.VideoUrl);
+                } else {
+                    alert('视频上传失败！');
+                    console.log('错误信息：' + data.error);
+                }
+            })
+            .catch(function(error) {
+                console.log(error);
+                alert('视频上传失败！');
+            });
+    }
+</script>
+    </div>
+</div>

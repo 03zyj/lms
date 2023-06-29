@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center " href="#">
+                        <a class="nav-link d-flex align-items-center " href="/video">
                             <svg class="mr-2 mb-0" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1zm2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848l-4-2.5z"/>
                                 <path d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5h13z"/>
@@ -72,10 +72,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="搜索感兴趣的课程" aria-label="Search">
+                        <form class="form-inline my-2 my-lg-0" th:action="@{/seach}" th:method="post">
+                            <input class="form-control mr-sm-2" name="seach" type="search" placeholder="搜索感兴趣的课程" aria-label="Search">
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">搜索</button>
                         </form>
+<!--                        <form action="/your-backend-url" method="POST">-->
+<!--                            <input type="text" name="username" placeholder="用户名">-->
+<!--                            <input type="password" name="password" placeholder="密码">-->
+<!--                            <button type="submit">提交</button>-->
+<!--                        </form>-->
                     </li>
 <!--                    <li class="nav-item"><a href="/login" class="btn btn-sm btn-primary transition-3d-hover my-3 my-lg-0" style="background-color: #007bff;border: #007bff">登录</a></li>-->
 <!--                    <li class="nav-item"><a href="/login" class="btn btn-sm btn-primary transition-3d-hover my-3 my-lg-0" style="background-color: #007bff;border: #007bff">个人中心</a></li>-->
